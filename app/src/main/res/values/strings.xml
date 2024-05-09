@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">note</string>
+    <string name="addNoteHeader">Add Note</string>
+    <string name="enter_title">Enter the title</string>
+    <string name="Enter_discription">Enter the Discription</string>
+
+</resources>
