@@ -17,9 +17,11 @@ class add_details : AppCompatActivity() {
         db = NotesDatabaseHelper(this)
 
         binding.saveButton.setOnClickListener{
-            val title = binding.titleEdit.text.toString()
-            val content = binding.contentEditText.text.toString()
-            val note = Note(0,title,content)
+            val fName = binding.FNEdit.text.toString()
+            val lName = binding.LNEdit.text.toString()
+            val phone: Int = binding.PEdit.text.toString().toIntOrNull() ?: 0
+            val disc = binding.contentEdit.text.toString()
+            val note = Note(0,fName,lName,phone,disc)
             db.insertNote(note)
             finish()
             Toast.makeText(this,"Note Saved", Toast.LENGTH_SHORT).show()
