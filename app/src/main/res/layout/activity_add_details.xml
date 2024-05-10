@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/adamina"
         android:text="@string/addNoteHeader"
         android:textColor="@color/black"
         android:textSize="24sp" />

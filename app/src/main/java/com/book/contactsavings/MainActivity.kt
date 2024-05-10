@@ -1,10 +1,9 @@
 package com.book.contactsavings
 
 import android.content.Intent
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.book.note.databinding.ActivityMainBinding
+import com.book.contactsavings.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,10 +14,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.addButton.setOnClickListener{
+        binding.addButton.setOnClickListener {
             val intent = Intent(this,add_details::class.java)
             startActivity(intent)
-
         }
+
     }
 }
