@@ -62,4 +62,46 @@ class NotesDatabaseHelper(context : Context) : SQLiteOpenHelper(context, DATABAS
         db.close()
         return notesList
     }
+
+    fun updateNote(note: Note){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_FName, note.fName)
+            put(COLUMN_LName,note.lName)
+            put(COLUMN_Phone,note.phone)
+            put(COLUMN_Disc,note.disc)
+        }
+        val whereClause = "$COLUMN_ID = ?"
+        val whereArgs = arrayOf(note.id.toString())
+        db.update(TABLE_NAME, values, whereClause, whereArgs)
+        db.close()
+    }
+
+    fun getNoteByID(noteId: Int): Note{
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID = $noteId"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+
+        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val fName = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FName))
+        val lName = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_LName))
+        val phone = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_Phone))
+        val disc = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_Disc))
+
+        cursor.close()
+        db.close()
+        return Note(id, fName, lName, phone, disc)
+    }
+
+    fun deleteNote(noteId: Int){
+        val db = writableDatabase
+        val whereClause = "$COLUMN_ID = ?"
+        val whereArgs = arrayOf(noteId.toString())
+        db.delete(TABLE_NAME, whereClause, whereArgs)
+        db.close()
+    }
+
+
+
 }

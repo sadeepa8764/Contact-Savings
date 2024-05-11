@@ -8,5 +8,14 @@
     <string name="contact_title">Contact Saving List</string>
     <string name="title">Title</string>
     <string name="content">Content</string>
+    <string name="fName">First Name</string>
+    <string name="lName">Last Name</string>
+    <string name="phone">Phone</string>
+    <string name="discription">Discription</string>
+    <string name="uHeader">Update Contact Saving</string>
+    <string name="edit_fname">Edit First Name</string>
+    <string name="edit_lname">Edit Last Name</string>
+    <string name="edit_phone">Edit Phone Number</string>
+    <string name="edit_discription">Edit Discription</string>
 
 </resources>

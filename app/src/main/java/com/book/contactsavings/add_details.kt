@@ -19,12 +19,16 @@ class add_details : AppCompatActivity() {
         binding.saveButton.setOnClickListener{
             val fName = binding.FNEdit.text.toString()
             val lName = binding.LNEdit.text.toString()
-            val phone: Int = binding.PEdit.text.toString().toIntOrNull() ?: 0
+            val phone: Int? = binding.PEdit.text.toString().toIntOrNull()
             val disc = binding.contentEdit.text.toString()
-            val note = Note(0,fName,lName,phone,disc)
-            db.insertNote(note)
-            finish()
-            Toast.makeText(this,"Note Saved", Toast.LENGTH_SHORT).show()
+            if (phone != null){
+                val note = Note(0,fName,lName,phone,disc)
+                db.insertNote(note)
+                finish()
+                Toast.makeText(this,"Note Saved", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, "Invalid phone number", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
